@@ -1,10 +1,10 @@
 class PortfoliosController < ApplicationController
   def index
-    @portfolio_item = Portfolio.all
+    @portfolio_items = Portfolio.all
   end
   
   def new
-    @portfolio_item Portfolio.new
+    @portfolio_item = Portfolio.new
   end
 end
 
@@ -23,19 +23,19 @@ end
     @portfolio_item = Portfolio.find(params[:id])
   end
   
- def update 
+  def update 
 @portfolio_item = Portfolio.find(params[:id])
 
   respond_to do |format|
     if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
-      format.html { redirect_to_portfolios_path, notice: 'The record was successfully updated' }
+      format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
     else
       format.html { render :edit }
     end
   end
-end
+  end
 
-def show
+  def show
   @portfolio_item = Portfolio.find(params[:id])
   
-end
+  end
