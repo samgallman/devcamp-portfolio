@@ -9,7 +9,6 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_item = Portfolio.new
-  3.times { @portfolio_item.technologies.build }
   end
 
   def create
@@ -29,8 +28,6 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
   end
   
-  
-
   def update
     @portfolio_item = Portfolio.find(params[:id])
 
@@ -61,3 +58,4 @@ class PortfoliosController < ApplicationController
   end
 
 end
+

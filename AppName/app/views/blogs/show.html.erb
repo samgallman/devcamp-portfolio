@@ -1,7 +1,16 @@
-<%= image_tag @portfolio_item.main_image %>
+<div class="col-sm-8 blog-main">
 
-<h1><%= @portfolio_item.title %></h1>
+  <h2><%= @blog.title %></h2>
 
-<em><%= @portfolio_item.subtitle %></em>
+  <%= render 'blog_breadcrumb' %>
 
-<p><%= @portfolio_item.body %></p>
+  <div class="blog-body">
+    <%= markdown @blog.body %>
+  </div>
+
+  <%= render 'comments/comment_form' %>
+
+  <div id="comments" data-blog-id="<%= @blog.id %>">
+    <%= render @blog.comments %>
+  </div>
+</div>

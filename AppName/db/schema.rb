@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718150524) do
+
+ActiveRecord::Schema.define(version: 20170710142509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170718150524) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170718150524) do
     t.datetime "updated_at",       null: false
   end
 
+
   create_table "technologies", force: :cascade do |t|
     t.string   "name"
     t.integer  "portfolio_id"
@@ -72,4 +75,5 @@ ActiveRecord::Schema.define(version: 20170718150524) do
 
   add_foreign_key "blogs", "topics"
   add_foreign_key "technologies", "portfolios"
+
 end
